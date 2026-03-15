@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Boredom Arcade</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1 class="title">🎮 Boredom Arcade</h1>
+
+<div id="navbar">
+<button onclick="showScreen('home')">Home</button>
+<button onclick="showScreen('arcade')">Arcade</button>
+<button onclick="showScreen('cookie')">Cookie Lab</button>
+<button onclick="showScreen('sandbox')">Sandbox</button>
+</div>
+
+<div id="scoreBox">
+Score: <span id="score">0</span>
+</div>
+
+<!-- HOME -->
+
+<div id="home" class="screen">
+
+<h2>Welcome</h2>
+
+<button class="bigButton" onclick="imBored()">🎲 I'm Bored</button>
+
+<p>Press the button and something fun will happen.</p>
+
+</div>
+
+
+<!-- ARCADE -->
+
+<div id="arcade" class="screen">
+
+<h2>Mini Games</h2>
+
+<button onclick="startBlockBlast()">Block Blast</button>
+<button onclick="startBubbleGame()">Bubble Pop</button>
+
+<div id="gameArea"></div>
+
+</div>
+
+
+<!-- COOKIE LAB -->
+
+<div id="cookie" class="screen">
+
+<h2>Cookie Lab</h2>
+
+<button onclick="spawnCookie()">Spawn Cookie 🍪</button>
+
+<h3>Upgrades</h3>
+
+<button onclick="buyUpgrade('double')">Double Cookies (10)</button>
+<button onclick="buyUpgrade('auto')">Auto Cookies (25)</button>
+<button onclick="buyUpgrade('mega')">Mega Tap (50)</button>
+
+</div>
+
+
+<!-- SANDBOX -->
+
+<div id="sandbox" class="screen">
+
+<h2>Sandbox Toys</h2>
+
+<button onclick="spawnBall()">Spawn Ball</button>
+<button onclick="spawnLight()">Add Light</button>
+<button onclick="spawnSwitch()">Add Switch</button>
+
+<div id="sandboxArea"></div>
+
+</div>
+
+
+<script src="app.js"></script>
+<script src="games.js"></script>
+<script src="audio.js"></script>
+
+</body>
+</html>
