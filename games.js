@@ -1,66 +1,30 @@
-function startBlockBlast(){
+function makeDraggable(el){
 
-const area=document.getElementById("gameArea")
+let offsetX, offsetY
 
-area.innerHTML=""
+el.addEventListener("pointerdown", e=>{
 
-for(let r=0;r<6;r++){
+offsetX = e.offsetX
+offsetY = e.offsetY
 
-for(let c=0;c<8;c++){
+function move(e){
 
-let block=document.createElement("div")
-
-block.className="block"
-
-block.style.left=(c*50)+"px"
-block.style.top=(r*50)+"px"
-
-block.onclick=()=>{
-
-updateScore(2)
-
-playSound("click2")
-
-block.remove()
+el.style.left = (e.pageX - offsetX) + "px"
+el.style.top = (e.pageY - offsetY) + "px"
 
 }
 
-area.appendChild(block)
+function stop(){
+
+document.removeEventListener("pointermove",move)
+document.removeEventListener("pointerup",stop)
 
 }
 
-}
+document.addEventListener("pointermove",move)
+document.addEventListener("pointerup",stop)
 
-}
-
-function startBubbleGame(){
-
-const area=document.getElementById("gameArea")
-
-area.innerHTML=""
-
-for(let i=0;i<20;i++){
-
-let bubble=document.createElement("div")
-
-bubble.className="bubble"
-
-bubble.style.left=Math.random()*90+"%"
-bubble.style.top=Math.random()*90+"%"
-
-bubble.onclick=()=>{
-
-updateScore(3)
-
-playSound("click2")
-
-bubble.remove()
-
-}
-
-area.appendChild(bubble)
-
-}
+})
 
 }
 
@@ -73,6 +37,8 @@ ball.className="ball"
 ball.style.left="100px"
 ball.style.top="100px"
 
+makeDraggable(ball)
+
 document.getElementById("sandboxArea").appendChild(ball)
 
 }
@@ -83,11 +49,16 @@ let light=document.createElement("div")
 
 light.className="light"
 
+light.style.left="120px"
+light.style.top="120px"
+
 light.onclick=()=>{
 
 light.classList.toggle("on")
 
 }
+
+makeDraggable(light)
 
 document.getElementById("sandboxArea").appendChild(light)
 
@@ -99,12 +70,18 @@ let btn=document.createElement("button")
 
 btn.innerText="Switch"
 
+btn.style.position="absolute"
+btn.style.left="140px"
+btn.style.top="140px"
+
 btn.onclick=()=>{
 
 spawnBall()
 spawnLight()
 
 }
+
+makeDraggable(btn)
 
 document.getElementById("sandboxArea").appendChild(btn)
 
