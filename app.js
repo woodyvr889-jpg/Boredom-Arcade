@@ -1,6 +1,5 @@
 let score = 0
 let multiplier = 1
-let autoMode = false
 
 const scoreText = document.getElementById("score")
 
@@ -23,8 +22,6 @@ document.getElementById(name).style.display="block"
 
 function spawnCookie(){
 
-playSound("click1")
-
 let cookie = document.createElement("div")
 
 cookie.innerText="🍪"
@@ -36,14 +33,13 @@ cookie.style.top=Math.random()*80+"%"
 cookie.onclick = () => {
 
 updateScore(multiplier)
-
 playSound("click2")
 
 cookie.remove()
 
 }
 
-document.getElementById("gameArea").appendChild(cookie)
+document.getElementById("cookieBox").appendChild(cookie)
 
 }
 
@@ -54,21 +50,6 @@ if(type==="double" && score>=10){
 score-=10
 multiplier=2
 updateScore(0)
-
-}
-
-if(type==="auto" && score>=25){
-
-score-=25
-updateScore(0)
-
-autoMode=true
-
-setInterval(()=>{
-
-if(autoMode) spawnCookie()
-
-},2000)
 
 }
 
