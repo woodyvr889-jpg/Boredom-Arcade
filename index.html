@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Boredom Arcade</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -11,15 +16,18 @@
 <h1 class="title">🎮 Boredom Arcade</h1>
 
 <div id="navbar">
+
 <button onclick="showScreen('home')">Home</button>
 <button onclick="showScreen('arcade')">Arcade</button>
 <button onclick="showScreen('cookie')">Cookie Lab</button>
 <button onclick="showScreen('sandbox')">Sandbox</button>
+
 </div>
 
 <div id="scoreBox">
 Score: <span id="score">0</span>
 </div>
+
 
 <!-- HOME -->
 
@@ -28,8 +36,6 @@ Score: <span id="score">0</span>
 <h2>Welcome</h2>
 
 <button class="bigButton" onclick="imBored()">🎲 I'm Bored</button>
-
-<p>Press the button and something fun will happen.</p>
 
 </div>
 
@@ -61,6 +67,10 @@ Score: <span id="score">0</span>
 <button onclick="buyUpgrade('double')">Double Cookies (10)</button>
 <button onclick="buyUpgrade('auto')">Auto Cookies (25)</button>
 <button onclick="buyUpgrade('mega')">Mega Tap (50)</button>
+
+<h3>Cookie Box</h3>
+
+<div id="cookieBox"></div>
 
 </div>
 
